@@ -49,3 +49,4 @@ end
   gem 'devise'
   gem 'paperclip'
   gem 'kaminari'
+   gem 'enum_help'

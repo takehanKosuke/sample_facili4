@@ -1,0 +1,30 @@
+<% if user_signed_in? %>
+  <h3><%= current_user.department.name %><%= current_user.email %>のアカウント</h3>
+<% else %>
+  <h3>ログインしていません</h3>
+<% end %>
+<table class="topTimetable">
+  <% piriod = 0%>
+    <tr>
+      <th></th>
+      <th>月曜</th>
+      <th>火曜</th>
+      <th>水曜</th>
+      <th>木曜</th>
+      <th>金曜</th>
+      <th>土曜</th>
+    <tr>
+    <% while piriod <= 5 do %>
+      <% wday = 0 %>
+        <tr>
+          <td>
+            <%= piriod+1 %>
+          </td>
+          <% while wday<= 5 do %>
+            <td><%= link_to"", top_search_path(wday: wday, piriod: piriod) %></td>
+            <% wday = wday + 1 %>
+          <% end %>
+        </tr>
+      <% piriod = 1 + piriod %>
+    <% end %>
+</table>

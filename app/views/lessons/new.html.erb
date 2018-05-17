@@ -1,0 +1,53 @@
+<div>
+  <%= form_for (@lesson) do |f| %>
+    <h3><%= f.label "学部・学課選択" %></h3>
+      <%= f.collection_select :faculty_id, Faculty.all, :id, :name %>
+      <%= f.collection_select :department_id, Department.all, :id, :name %>
+
+    <h3><%= f.label"年度・期間" %></h3>
+      <%= f.collection_select :year_id, Year.all, :id, :year %>
+      <%= f.collection_select :term_id, Term.all, :id, :term %>
+
+    <h3><%= f.label"先生" %></h3>
+      <%= f.collection_select :teacher_id, Teacher.all, :id, :name %>
+
+    <h3><%= f.label"受講可能学年" %></h3>
+      <label><%= f.radio_button :gread_id, 0 ,{:checked => true}%>誰でも受講可</label>
+      <label><%= f.radio_button :gread_id, 1 %>2年生以上受講可</label>
+      <label><%= f.radio_button :gread_id, 2 %>3年生以上受講可</label>
+      <label><%= f.radio_button :gread_id, 3 %>4年生以上受講可</label>
+
+    <h3><%= f.label"取得単位数"%></h3>
+      <%= f.select(:unit,[[2],[1]]) %><%=f.label"単位"%>
+
+    <h3><%= f.label "何曜？" %></h3>
+      <label><%= f.radio_button :wday, 0 ,{:checked => true}%>月曜</label>
+      <label><%= f.radio_button :wday, 1 %>火曜</label>
+      <label><%= f.radio_button :wday, 2 %>水曜</label>
+      <label><%= f.radio_button :wday, 3 %>木曜</label>
+      <label><%= f.radio_button :wday, 4 %>金曜</label>
+      <label><%= f.radio_button :wday, 5 %>土曜</label>
+
+    <h3><%= f.label "何限？" %></h3>
+      <label><%=f.radio_button :piriod, 0 ,{:checked => true}%>1限</label>
+      <label><%=f.radio_button :piriod, 1 %>2限</label>
+      <label><%=f.radio_button :piriod, 2 %>3限</label>
+      <label><%=f.radio_button :piriod, 3 %>4限</label>
+      <label><%=f.radio_button :piriod, 4 %>5限</label>
+      <label><%=f.radio_button :piriod, 5 %>6限</label>
+      <label><%=f.radio_button :piriod, 6 %>7限</label>
+
+    <h3><%= f.label "授業名" %></h3>
+      <%= f.text_field :name, placeholder:"授業名"%>
+
+    <h3><%= f.label "教科書" %></h3>
+      <%= f.text_field :textbook, placeholder:"教科書名" %>
+
+    <h3><%= f.label "参考書" %></h3>
+      <%= f.text_field :referencebook, placeholder:"参考書"%>
+    <h3><%= f.label "教室番号 "%></h3>
+      <%= f.text_field :room_number, placeholder:"教室番号" %>
+
+      <%= f.submit "授業登録"%>
+  <% end %>
+</div>
