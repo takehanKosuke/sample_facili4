@@ -8,4 +8,7 @@ class User < ActiveRecord::Base
   belongs_to :faculty
   belongs_to :department
   belongs_to :gread
+
+  has_many :lesson_users
+  has_many :lessons, through: :lesson_users
 end

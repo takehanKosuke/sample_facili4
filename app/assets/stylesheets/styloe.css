@@ -30,3 +30,7 @@ table.topTimetable td a{
 table.topTimetable td a:hover{
   background-color: #f49d9d;
   }
+
+td.persent{
+  background-color:#CCFFFF;
+}

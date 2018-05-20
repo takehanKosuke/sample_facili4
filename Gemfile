@@ -50,3 +50,4 @@ end
   gem 'paperclip'
   gem 'kaminari'
    gem 'enum_help'
+    gem 'rails-erd'

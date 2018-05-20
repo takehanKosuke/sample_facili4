@@ -1,10 +1,7 @@
 <% if user_signed_in? %>
   <h3><%= current_user.department.name %><%= current_user.email %>のアカウント</h3>
-<% else %>
-  <h3>ログインしていません</h3>
-<% end %>
-<table class="topTimetable">
-  <% piriod = 0%>
+  <table class="topTimetable">
+    <% piriod = 0%>
     <tr>
       <th></th>
       <th>月曜</th>
@@ -21,10 +18,24 @@
             <%= piriod+1 %>
           </td>
           <% while wday<= 5 do %>
-            <td><%= link_to"", top_search_path(wday: wday, piriod: piriod) %></td>
-            <% wday = wday + 1 %>
+            <% if Lesson.find_by(piriod: piriod, wday: wday).present? && Lesson.find_by(piriod: piriod, wday: wday).lesson_users.exists?(user_id: current_user.id) %>
+              <% lesson = Lesson.find_by(piriod: piriod, wday: wday) %>
+              <td class=persent><%= link_to lesson.name, lesson_path(lesson) %></td>
+            <% else %>
+              <td><%= link_to"", new_top_path(wday: wday, piriod: piriod) %></td>
+            <% end %>
+          <% wday = wday + 1 %>
           <% end %>
         </tr>
       <% piriod = 1 + piriod %>
     <% end %>
-</table>
+  </table>
+  <% a = 0 %>
+  <% current_user.lessons.each do |lesson| %>
+    <% a = lesson.unit + a %>
+  <% end %>
+  <h4>計<%= a %>単位</h4>
+<% else %>
+  <h3>ログインしてください</h3>
+<% end %>
+

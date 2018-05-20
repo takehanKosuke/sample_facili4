@@ -1,0 +1,15 @@
+<h3>プロフィール編集</h3>
+<%= form_for(@user) do |f| %>
+
+  <%= f.label "学部" %><br/>
+    <%= f.collection_select :faculty_id, Faculty.all, :id, :name %><br/>
+
+  <%= f.label "学科" %><br/>
+    <%= f.collection_select :department_id, Department.all, :id, :name %><br/>
+
+  <%= f.label "学年" %><br/>
+    <%= f.collection_select :gread_id, Gread.all, :id, :gread %><%= f.label "年" %>
+
+  <%= f.submit"更新する"%>
+
+<% end %>

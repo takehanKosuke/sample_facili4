@@ -7,4 +7,7 @@ class Lesson < ActiveRecord::Base
   belongs_to :teacher
   belongs_to :term
   belongs_to :year
+
+  has_many :users, through: :lesson_users
+  has_many :lesson_users
 end
