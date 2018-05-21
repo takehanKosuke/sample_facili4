@@ -8,12 +8,13 @@
 </head>
 <body>
   <header>
+    <a href="/top"><img alt="ふぁしり" src="/images/facili_logo.png" /></a>
     <% if user_signed_in? %>
       <ul>
         <li><%= link_to"ログアウト",destroy_user_session_path, method: :delete %></li>
+        <li><%= link_to"プロフィール編集", "/users/#{current_user.id}/edit" %></li>
         <% if current_user.permission == "administrator" %>
           <li><%= link_to"授業登録","/lessons/new", method: :get %></li>
-          <li><%= link_to"プロフィール編集", "/users/#{current_user.id}/edit" %></li>
         <% end %>
       </ul>
     <% else %>

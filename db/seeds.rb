@@ -31,6 +31,8 @@ Teacher.create(:name => "鈴木 信子")
 Term.create(:term => "前期")
 Term.create(:term => "後期")
 Term.create(:term => "通年")
+Term.create(:term => "集中")
+
 
 Year.create(:year => 2018)
 Year.create(:year => 2019)

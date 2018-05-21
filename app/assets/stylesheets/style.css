@@ -34,3 +34,7 @@ table.topTimetable td a:hover{
 td.persent{
   background-color:#CCFFFF;
 }
+
+.topTimetable{
+  margin: 0px 30px 30px 30px;
+}
