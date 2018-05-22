@@ -3,9 +3,9 @@ class TopController < ApplicationController
   end
 
   def new
-    @lessons = Lesson.where("department_id = ? and wday = ? and piriod = ? and term_id = ? or term_id = ?", current_user.department_id, params[:wday], params[:piriod], params[:term_id], 3)
+    @lessons = Lesson.where("department_id = ? and wday = ? and period = ? and term_id = ? or department_id = ? and wday = ? and period = ? and term_id = ?", current_user.department_id, params[:wday], params[:period], params[:term_id], current_user.department_id, params[:wday], params[:period], 3)
 
-     # @lessons = Lesson.where("department_id = ? and wday = ? and piriod = ? "), current_user.department_id, params[:wday], params[:piriod]).where.not
+     # @lessons = Lesson.where("department_id = ? and wday = ? and period = ? "), current_user.department_id, params[:wday], params[:period]).where.not
     @user_status = LessonUser.new
   end
 

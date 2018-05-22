@@ -22,6 +22,6 @@ class LessonsController < ApplicationController
 
   private
   def lesson_create
-    params.require(:lesson).permit(:name, :room_number, :textbook, :referencebook, :piriod, :wday, :unit, :faculty_id, :department_id, :gread_id, :teacher_id, :term_id, :year_id)
+    params.require(:lesson).permit(:name, :room_number, :textbook, :referencebook, :period, :wday, :unit, :faculty_id, :department_id, :gread_id, :teacher_id, :term_id, :year_id)
   end
 end

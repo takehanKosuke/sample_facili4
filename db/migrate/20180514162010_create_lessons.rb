@@ -5,7 +5,7 @@ class CreateLessons < ActiveRecord::Migration
       t.string :room_number
       t.string :textbook
       t.string :referencebook
-      t.integer :piriod
+      t.integer :period
       t.string :wday
       t.integer :unit
       t.integer :lesson_information_id

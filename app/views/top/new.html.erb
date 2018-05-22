@@ -12,11 +12,11 @@
   <% wwday = "土" %>
 <% end %>
 
-<% ppiriod =params[:piriod].to_i%>
-<% ppiriod = ppiriod + 1%>
+<% pperiod =params[:period].to_i%>
+<% pperiod = pperiod + 1%>
 
 
-<h3><%= wwday %>曜日<%= ppiriod %>時間目の授業</h3>
+<h3><%= wwday %>曜日<%= pperiod %>時間目の授業</h3>
 <% if @lessons.present? %>
   <table>
     <tr>

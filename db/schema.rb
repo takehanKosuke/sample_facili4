@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180517111356) do
+ActiveRecord::Schema.define(version: 20180522044549) do
 
   create_table "departments", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -46,7 +46,6 @@ ActiveRecord::Schema.define(version: 20180517111356) do
     t.string   "room_number",           limit: 255
     t.string   "textbook",              limit: 255
     t.string   "referencebook",         limit: 255
-    t.integer  "piriod",                limit: 4
     t.string   "wday",                  limit: 255
     t.integer  "unit",                  limit: 4
     t.integer  "lesson_information_id", limit: 4
@@ -58,6 +57,7 @@ ActiveRecord::Schema.define(version: 20180517111356) do
     t.integer  "teacher_id",            limit: 4
     t.integer  "term_id",               limit: 4
     t.integer  "year_id",               limit: 4
+    t.integer  "period",                limit: 4
   end
 
   create_table "teachers", force: :cascade do |t|

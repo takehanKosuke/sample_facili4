@@ -8,7 +8,8 @@
 </head>
 <body>
   <header>
-    <a href="/top"><img alt="ふぁしり" src="/images/facili_logo.png" /></a>
+    
+    <a href="/top"><img alt="ふぁしり" src="../assets/images/facili_logo.png" /></a>
     <% if user_signed_in? %>
       <ul>
         <li><%= link_to"ログアウト",destroy_user_session_path, method: :delete %></li>
