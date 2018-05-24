@@ -10,4 +10,7 @@ class Lesson < ActiveRecord::Base
 
   has_many :users, through: :lesson_users
   has_many :lesson_users
+
+  has_many :lesson_teachers
+  has_many :teachers, through: :lesson_teachers
 end

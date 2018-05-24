@@ -21,13 +21,20 @@ Faculty.create(:name => "現代ライフ学部")
 Faculty.create(:name => "ヒューマンケア学部")
 Faculty.create(:name => "健康医療スポーツ学部")
 
-Gread.create(:gread => 0)
 Gread.create(:gread => 1)
 Gread.create(:gread => 2)
 Gread.create(:gread => 3)
+Gread.create(:gread => 4)
 
-Teacher.create(:name => "鈴木 信子")
+require "csv"
 
+CSV.foreach('db/teachers_names.csv') do |row|
+  i = 0
+  while i < row.length
+    Teacher.create(:name => row[i])
+    i += 1
+  end
+end
 Term.create(:term => "前期")
 Term.create(:term => "後期")
 Term.create(:term => "通年")
