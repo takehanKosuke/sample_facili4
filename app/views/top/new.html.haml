@@ -35,9 +35,9 @@
           = f.hidden_field :lesson_id, value: lesson.id
           = f.hidden_field :user_id, value: "#{current_user.id}"
           %td= f.submit "追加"
-        -# - else
-        -#   - if params[:term_id] == "1"
-        -#     %h3 前期の取得可能の授業はありません
-        -#   - else
-        -#     %h3 後期の取得可能授業はありません
-      = link_to"トップに戻る" ,"/"
+- else
+  - if params[:term_id] == "1"
+    %h3 前期の取得可能の授業はありません
+  - else
+    %h3 後期の取得可能授業はありません
+= link_to"トップに戻る" ,"/"
