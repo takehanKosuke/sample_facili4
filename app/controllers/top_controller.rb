@@ -1,5 +1,9 @@
 class TopController < ApplicationController
+
   def index
+    if user_signed_in?
+      @lessons = current_user.lessons
+    end
   end
 
   def new

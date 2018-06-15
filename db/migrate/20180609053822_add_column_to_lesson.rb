@@ -9,5 +9,6 @@ class AddColumnToLesson < ActiveRecord::Migration
 
     remove_column :lessons, :faculty_id, :integer
     remove_column :lessons, :room_number, :string
+    remove_column :lessons, :lesson_information_id, :integer
   end
 end

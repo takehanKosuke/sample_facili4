@@ -1,0 +1,29 @@
+%h2 授業登録
+= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+  = devise_error_messages!
+  = f.label "学科"
+  %br/
+  = f.collection_select :department_id, Department.all, :id, :name
+  %br/
+  = f.label "学年"
+  %br/
+  = f.collection_select :gread_id, Gread.all, :id, :gread
+  = f.label "年"
+  .field
+    = f.label :email
+    %br/
+    = f.email_field :email, autofocus: true, autocomplete: "email"
+  .field
+    = f.label :password
+    - if @minimum_password_length
+      %em
+        (#{@minimum_password_length} characters minimum)
+    %br/
+    = f.password_field :password, autocomplete: "off"
+  .field
+    = f.label :password_confirmation
+    %br/
+    = f.password_field :password_confirmation, autocomplete: "off"
+  .actions
+    = f.submit "Sign up"
+= render "devise/shared/links"

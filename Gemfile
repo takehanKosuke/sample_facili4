@@ -45,9 +45,11 @@ group :development do
   gem 'spring'
 end
 
- gem 'pry-rails'
+  gem 'pry-rails'
   gem 'devise'
   gem 'paperclip'
   gem 'kaminari'
-   gem 'enum_help'
-    gem 'rails-erd'
+  gem 'enum_help'
+  gem 'rails-erd'
+  gem 'erb2haml'
+  gem 'haml-rails'

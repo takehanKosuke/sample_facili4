@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180523083652) do
+ActiveRecord::Schema.define(version: 20180611223434) do
+
+  create_table "classifications", force: :cascade do |t|
+    t.string   "word",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
 
   create_table "departments", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -32,13 +38,6 @@ ActiveRecord::Schema.define(version: 20180523083652) do
     t.datetime "updated_at",           null: false
   end
 
-  create_table "lesson_teachers", force: :cascade do |t|
-    t.integer  "lesson_id",  limit: 4
-    t.integer  "teacher_id", limit: 4
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
-  end
-
   create_table "lesson_users", force: :cascade do |t|
     t.integer  "lesson_id",  limit: 4
     t.integer  "user_id",    limit: 4
@@ -49,22 +48,26 @@ ActiveRecord::Schema.define(version: 20180523083652) do
   add_index "lesson_users", ["lesson_id", "user_id"], name: "index_lesson_users_on_lesson_id_and_user_id", unique: true, using: :btree
 
   create_table "lessons", force: :cascade do |t|
-    t.string   "name",                  limit: 255
-    t.string   "room_number",           limit: 255
-    t.string   "textbook",              limit: 255
-    t.string   "referencebook",         limit: 255
-    t.string   "wday",                  limit: 255
-    t.integer  "unit",                  limit: 4
-    t.integer  "lesson_information_id", limit: 4
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
-    t.integer  "department_id",         limit: 4
-    t.integer  "faculty_id",            limit: 4
-    t.integer  "gread_id",              limit: 4
-    t.integer  "teacher_id",            limit: 4
-    t.integer  "term_id",               limit: 4
-    t.integer  "year_id",               limit: 4
-    t.integer  "period",                limit: 4
+    t.integer  "code",              limit: 4
+    t.string   "name",              limit: 255
+    t.integer  "term_id",           limit: 4
+    t.integer  "unit",              limit: 4
+    t.string   "wday",              limit: 255
+    t.integer  "period",            limit: 4
+    t.integer  "teacher_id",        limit: 4
+    t.integer  "gread_id",          limit: 4
+    t.text     "textbook",          limit: 65535
+    t.text     "referencebook",     limit: 65535
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.integer  "department_id",     limit: 4
+    t.integer  "year_id",           limit: 4
+    t.text     "target",            limit: 65535
+    t.text     "contents",          limit: 65535
+    t.text     "level",             limit: 65535
+    t.text     "evaluation",        limit: 65535
+    t.text     "plan",              limit: 65535
+    t.integer  "classification_id", limit: 4
   end
 
   create_table "teachers", force: :cascade do |t|
@@ -90,7 +93,6 @@ ActiveRecord::Schema.define(version: 20180523083652) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip",     limit: 255
     t.string   "last_sign_in_ip",        limit: 255
-    t.integer  "faculty_id",             limit: 4
     t.integer  "department_id",          limit: 4
     t.integer  "permission",             limit: 4
     t.string   "name",                   limit: 255
