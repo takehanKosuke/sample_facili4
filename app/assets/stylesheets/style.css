@@ -4,6 +4,10 @@
   display: block;
 }
 
+/*header li{
+  float: left;
+}*/
+
 table {
   border-collapse: collapse;
 }
@@ -45,10 +49,9 @@ td.persent{
   height: 90px;
 }
 
-.left{
-
+.previous_term{
+  float: left;
 }
-
-.right{
-  
+.latter_period{
+  float: left;
 }

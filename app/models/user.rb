@@ -10,4 +10,5 @@ class User < ActiveRecord::Base
 
   has_many :lesson_users
   has_many :lessons, through: :lesson_users
+  has_many :user_books
 end

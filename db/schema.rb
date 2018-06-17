@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180611223434) do
+ActiveRecord::Schema.define(version: 20180616072006) do
+
+  create_table "books", force: :cascade do |t|
+    t.text     "name_text",           limit: 65535
+    t.text     "author",              limit: 65535
+    t.integer  "list_price",          limit: 4
+    t.integer  "ctext_lassification", limit: 4
+    t.integer  "lesson_id",           limit: 4
+    t.integer  "user_id",             limit: 4
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+  end
 
   create_table "classifications", force: :cascade do |t|
     t.string   "word",       limit: 255
@@ -80,6 +91,13 @@ ActiveRecord::Schema.define(version: 20180611223434) do
     t.string   "term",       limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+  end
+
+  create_table "user_books", force: :cascade do |t|
+    t.integer  "book_id",    limit: 4
+    t.integer  "user_id",    limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
   create_table "users", force: :cascade do |t|

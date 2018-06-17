@@ -4,6 +4,7 @@
     = current_user.email
     \&#x306E;&#x30A2;&#x30AB;&#x30A6;&#x30F3;&#x30C8;
   .previous_term
+    %h4 前期
     %table.topTimetable
       - period = 0
       %tr
@@ -14,7 +15,6 @@
         %th 木曜
         %th 金曜
         %th 土曜
-        %tr
       - while period <= 5 do
         - wday = 0
         %tr
@@ -27,40 +27,40 @@
               %td= link_to"", new_top_path(wday: wday, period: period, term_id: 1)
             - wday = wday + 1
         - period = 1 + period
-    .latter.period
-      %table.topTimetable
-        - period = 0
+  .latter_period
+    %h4 後期
+    %table.topTimetable
+      - period = 0
+      %tr
+        %th
+        %th 月曜
+        %th 火曜
+        %th 水曜
+        %th 木曜
+        %th 金曜
+        %th 土曜
+      - while period <= 5 do
+        - wday = 0
         %tr
-          %th
-          %th 月曜
-          %th 火曜
-          %th 水曜
-          %th 木曜
-          %th 金曜
-          %th 土曜
-          %tr
-        - while period <= 5 do
-          - wday = 0
-          %tr
-            %td
-              = period+1
-            - while wday <= 5 do
-              - if lesson = @lessons.find_by(period: period, wday: wday, term_id: [2, 3])
-                %td.persent= link_to lesson.name, lesson_path(lesson)
-              - else
-                %td= link_to"", new_top_path(wday: wday, period: period, term_id: 2)
-              - wday = wday + 1
-          - period = 1 + period
+          %td
+            = period+1
+          - while wday <= 5 do
+            - if lesson = @lessons.find_by(period: period, wday: wday, term_id: [2, 3])
+              %td.persent= link_to lesson.name, lesson_path(lesson)
+            - else
+              %td= link_to"", new_top_path(wday: wday, period: period, term_id: 2)
+            - wday = wday + 1
+        - period = 1 + period
     - a = 0
     - current_user.lessons.each do |lesson|
       - a = lesson.unit + a
-    %h4
-      計#{a}単位
-    - current_user.lessons.each do |lesson|
-      %p
-        = lesson.name
-        \:#{lesson.textbook}
-    = succeed "," do
-      %a{:href => "/"}
+  %h4.clearfix
+    計#{a}単位
+  - current_user.lessons.each do |lesson|
+    %p
+      = lesson.name
+      \:#{lesson.textbook}
+  = succeed "," do
+    %a{:href => "/"}
 - else
   %h3 ログインしてください
