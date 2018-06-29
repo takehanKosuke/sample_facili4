@@ -100,7 +100,7 @@ def fetch_teacher_id_by_name(teacher)
 end
 
 def classificat(c)
-  if c == "必修"
+  if c == "必修 "
     c = 1
   else
     c = 2
@@ -117,11 +117,11 @@ end
 def greads(a)
   if a == "１年次 "
     return 1
-  elsif a == "２年次"
+  elsif a == "２年次 "
     return 2
-  elsif a == "３年次"
+  elsif a == "３年次 "
     return 3
-  elsif a == "４年次"
+  elsif a == "４年次 "
     return 4
   end
 end

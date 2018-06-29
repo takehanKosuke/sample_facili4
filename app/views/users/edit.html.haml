@@ -1,8 +1,5 @@
 %h3 プロフィール編集
 = form_for(@user) do |f|
-  = f.label "学部"
-  %br/
-  = f.collection_select :faculty_id, Faculty.all, :id, :name
   %br/
   = f.label "学科"
   %br/

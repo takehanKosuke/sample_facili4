@@ -4,9 +4,9 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 # Use mysql as the database for Active Record
-  gem 'mysql2', '0.3.18'
+gem 'mysql2', '0.3.18'
   # Use SCSS for stylesheets
-  gem 'sass-rails', '~> 4.0.2'
+gem 'sass-rails', '~> 4.0.2'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -53,3 +53,4 @@ end
   gem 'rails-erd'
   gem 'erb2haml'
   gem 'haml-rails'
+  gem 'bootstrap-sass', '3.2.0.0'
