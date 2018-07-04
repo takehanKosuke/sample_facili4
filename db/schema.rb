@@ -59,20 +59,20 @@ ActiveRecord::Schema.define(version: 20180616072006) do
   add_index "lesson_users", ["lesson_id", "user_id"], name: "index_lesson_users_on_lesson_id_and_user_id", unique: true, using: :btree
 
   create_table "lessons", force: :cascade do |t|
-    t.integer  "code",              limit: 4
     t.string   "name",              limit: 255
-    t.integer  "term_id",           limit: 4
-    t.integer  "unit",              limit: 4
-    t.string   "wday",              limit: 255
-    t.integer  "period",            limit: 4
-    t.integer  "teacher_id",        limit: 4
-    t.integer  "gread_id",          limit: 4
     t.text     "textbook",          limit: 65535
     t.text     "referencebook",     limit: 65535
+    t.integer  "period",            limit: 4
+    t.string   "wday",              limit: 255
+    t.integer  "unit",              limit: 4
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
     t.integer  "department_id",     limit: 4
+    t.integer  "gread_id",          limit: 4
+    t.integer  "teacher_id",        limit: 4
+    t.integer  "term_id",           limit: 4
     t.integer  "year_id",           limit: 4
+    t.integer  "code",              limit: 4
     t.text     "target",            limit: 65535
     t.text     "contents",          limit: 65535
     t.text     "level",             limit: 65535
