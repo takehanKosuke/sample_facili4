@@ -45,6 +45,15 @@ group :development do
   gem 'spring'
 end
 
+group :production do
+  gem 'rails_12factor'
+end
+
+group :production do
+  gem 'rails_12factor'
+  gem 'pg', '~> 0.18'
+end
+
   gem 'pry-rails'
   gem 'devise'
   gem 'paperclip'

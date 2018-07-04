@@ -20,7 +20,7 @@
             %td
               = period+1
             - while wday <= 5 do
-              - if lesson = @lessons.find_by(period: period, wday: wday, term_id: [1, 3])
+              - if lesson = @lessons.find_by(period: period, wday: wday, term_id: [1, 3, 4])
                 %td.persent= link_to lesson.name.truncate(15), lesson_path(lesson)
               - else
                 %td= link_to"", new_top_path(wday: wday, period: period, term_id: [1, 3, 4], gread_id: current_user.gread_id)
@@ -44,7 +44,7 @@
             %td
               = period+1
             - while wday <= 5 do
-              - if lesson = @lessons.find_by(period: period, wday: wday, term_id: [2, 4])
+              - if lesson = @lessons.find_by(period: period, wday: wday, term_id: [2, 3, 4])
                 %td.persent= link_to lesson.name, lesson_path(lesson)
               - else
                 %td= link_to"", new_top_path(wday: wday, period: period, term_id: [2, 3, 4], gread_id: current_user.gread_id)
@@ -75,8 +75,6 @@
                 %td= lesson.referencebook
                 %td
                 %td
-          -# %botton.btn.btn-success.col-xs-2.col-ms-2.col-md-2.col-lg-2{:type=>"botton"}
-          -#   %a{:href => "https://www.amazon.co.jp/?tag=hydraamazonav-22&hvadid=247720376301&hvpos=1t1&hvnetw=g&hvrand=10879976284510714580&hvpone=&hvptwo=&hvqmt=e&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1009318&hvtargid=kwd-10573980&ref=pd_sl_7ibq2d37on_e"} 購入する
           = link_to "購入する", "https://www.amazon.co.jp/?tag=hydraamazonav-22&hvadid=247720376301&hvpos=1t1&hvnetw=g&hvrand=10879976284510714580&hvpone=&hvptwo=&hvqmt=e&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1009318&hvtargid=kwd-10573980&ref=pd_sl_7ibq2d37on_e", class: "btn btn-success col-xs-2 col-ms-2 col-md-2 col-lg-2 mt-3"
 - else
   %h3 ログインしてください

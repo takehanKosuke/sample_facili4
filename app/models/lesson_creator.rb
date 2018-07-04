@@ -164,9 +164,17 @@ class LessonCreator
   # レベル
       lesson.level = data[10]
   # 教科書
-      lesson.textbook = data[11]
+      if data[11].scan(/\「.*\」|\『.*\』/) == []
+        lesson.textbook = ""
+      else
+        lesson.textbook = data[11].scan(/\「.*\」|\『.*\』/)
+      end
   # 参考書
-      lesson.referencebook = data[12]
+      if data[12].scan(/\「.*\」|\『.*\』/)== []
+        lesson.referencebook = ""
+      else
+        lesson.referencebook = data[12].scan(/\「.*\」|\『.*\』/)
+      end
   # 評価
       lesson.evaluation = data[13]
   # 計画

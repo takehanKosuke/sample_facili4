@@ -37,6 +37,7 @@
               %td= lesson.gread_id
               %td
                 = form_for(@user_status, :url=>{:controller=>"top", :action=>"create"}) do |f|
+                  -# ここで同じ授業コードを持ってる授業を探していしょに飛ばす
                   = f.hidden_field :lesson_id, value: lesson.id
                   = f.hidden_field :code, value: lesson.code
                   = f.submit "追加"
