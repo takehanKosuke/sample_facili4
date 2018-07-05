@@ -4,6 +4,10 @@
   display: block;
 }
 
+.signed-view{
+  text-align: center;
+}
+
 header li{
   float: left;
 }

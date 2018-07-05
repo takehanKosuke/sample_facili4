@@ -23,7 +23,7 @@
               - if lesson = @lessons.find_by(period: period, wday: wday, term_id: [1, 3, 4])
                 %td.persent= link_to lesson.name.truncate(15), lesson_path(lesson)
               - else
-                %td= link_to"", new_top_path(wday: wday, period: period, term_id: [1, 3, 4], gread_id: current_user.gread_id)
+                %td= link_to"", new_top_path(wday: wday, period: period, term_id: [1, 3], gread_id: current_user.gread_id)
               - wday = wday + 1
           - period = 1 + period
     .latter_period
@@ -47,7 +47,7 @@
               - if lesson = @lessons.find_by(period: period, wday: wday, term_id: [2, 3, 4])
                 %td.persent= link_to lesson.name, lesson_path(lesson)
               - else
-                %td= link_to"", new_top_path(wday: wday, period: period, term_id: [2, 3, 4], gread_id: current_user.gread_id)
+                %td= link_to"", new_top_path(wday: wday, period: period, term_id: [2, 3], gread_id: current_user.gread_id)
               - wday = wday + 1
           - period = 1 + period
       - a = 0
@@ -69,12 +69,13 @@
               %th
               %th
             - current_user.lessons.each do |lesson|
-              %tr
-                %td.text-center= lesson.name
-                %td= lesson.textbook
-                %td= lesson.referencebook
-                %td
-                %td
+              -if lesson.textbook.present? || lesson.referencebook.present?
+                %tr
+                  %td.text-center= lesson.name
+                  %td= lesson.textbook
+                  %td= lesson.referencebook
+                  %td
+                  %td
           = link_to "購入する", "https://www.amazon.co.jp/?tag=hydraamazonav-22&hvadid=247720376301&hvpos=1t1&hvnetw=g&hvrand=10879976284510714580&hvpone=&hvptwo=&hvqmt=e&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1009318&hvtargid=kwd-10573980&ref=pd_sl_7ibq2d37on_e", class: "btn btn-success col-xs-2 col-ms-2 col-md-2 col-lg-2 mt-3"
 - else
   %h3 ログインしてください

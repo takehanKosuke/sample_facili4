@@ -1,17 +1,49 @@
-%h2 Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    %br/
-    = f.password_field :password, autocomplete: "off"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "devise/shared/links"
+.container
+  .row
+    .col-md-12
+      .signed-view
+        %h3 ログイン
+        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          .field
+            = f.label :メールアドレス
+            %br/
+            = f.email_field :email, autofocus: true, autocomplete: "email"
+          .field
+            = f.label :パスワード
+            %br/
+            = f.password_field :password, autocomplete: "off"
+          - if devise_mapping.rememberable?
+            .field
+              = f.check_box :remember_me
+              = f.label :ログインを維持しますか？
+          .actions
+            = f.submit "ログイン"
+        = render "devise/shared/links"
+
+
+
+-# .container
+-#   .row
+-#     .col-md-12
+-#       .pr-wrap
+-#         .pass-reset
+-#           %label
+-#             Enter the email you signed up with
+-#           %input{:placeholder => "Email", :type => "email"}/
+-#           %input.pass-reset-submit.btn.btn-success.btn-sm{:type => "submit", :value => "Submit"}/
+-#       .wrap
+-#         %p.form-title
+-#           Sign In
+-#         %form.login
+-#           %input{:placeholder => "Username", :type => "text"}/
+-#           %input{:placeholder => "Password", :type => "password"}/
+-#           %input.btn.btn-success.btn-sm{:type => "submit", :value => "Sign In"}/
+-#           .remember-forgot
+-#             .row
+-#               .col-md-6
+-#                 .checkbox
+-#                   %label
+-#                     %input{:type => "checkbox"}/
+-#                     Remember Me
+-#               .col-md-6.forgot-pass-content
+-#                 %a.forgot-pass{:href => "javascription:void(0)"} Forgot Password
