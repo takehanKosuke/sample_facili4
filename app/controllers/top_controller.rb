@@ -4,7 +4,7 @@ class TopController < ApplicationController
     if user_signed_in?
       @lessons = current_user.lessons
     else
-      # redirect_to "user#new"
+      # redirect_to "new_user_session"
     end
   end
 
@@ -19,14 +19,13 @@ class TopController < ApplicationController
         wday = ? AND
         period = ? AND
         gread_id <= ? AND
-        term_id in(?,?,?) AND
+        term_id in (?) AND
         gread_id <= ?",
         current_user.department_id,
         params[:wday],
         params[:period],
         params[:gread_id],
         params[:term_id],
-        '3','4',
         params[:gread_id]
       )
 

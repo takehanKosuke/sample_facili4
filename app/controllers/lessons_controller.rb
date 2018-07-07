@@ -12,10 +12,8 @@ class LessonsController < ApplicationController
   end
 
   def show
-   
     @lesson = Lesson.find(params[:id])
     @lesson_user = LessonUser.where("lesson_id = ? and user_id = ?", @lesson.id, current_user.id).first
-
   end
 
 
