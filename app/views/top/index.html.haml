@@ -20,7 +20,7 @@
             %td
               = period+1
             - while wday <= 5 do
-              - if lesson = @lessons.find_by(period: period, wday: wday, term_id: [1, 3, 4])
+              - if lesson = @lessons.find_by(period: period, wday: wday, term_id: [1, 3])
                 %td.persent= link_to lesson.name.truncate(15), lesson_path(lesson)
               - else
                 %td= link_to"", new_top_path(wday: wday, period: period, term_id: [1, 3], gread_id: current_user.gread_id)
@@ -44,10 +44,10 @@
             %td
               = period+1
             - while wday <= 5 do
-              - if lesson = @lessons.find_by(period: period, wday: wday, term_id: [2, 3, 4])
+              - if lesson = @lessons.find_by(period: period, wday: wday, term_id: [2, 4])
                 %td.persent= link_to lesson.name, lesson_path(lesson)
               - else
-                %td= link_to"", new_top_path(wday: wday, period: period, term_id: [2, 3], gread_id: current_user.gread_id)
+                %td= link_to"", new_top_path(wday: wday, period: period, term_id: [2, 4], gread_id: current_user.gread_id)
               - wday = wday + 1
           - period = 1 + period
       - a = 0

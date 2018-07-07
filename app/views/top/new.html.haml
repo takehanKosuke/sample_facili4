@@ -15,9 +15,7 @@
 .content
   .row
     .col-md-10.col-md-offset-1
-      -# -binding.pry
-      %h3
-        = "#{wwday}曜日#{pperiod}時間目の授業"
+      %h3= "#{wwday}曜日#{pperiod}時間目の授業"
       - if @lessons.present?
         %table.table-bordered.table-striped.col-xs10.col-ms10
           %tr
@@ -37,11 +35,11 @@
               %td= lesson.unit
               %td= lesson.gread_id
               %td
-                = form_for(@user_status, :url=>{:controller=>"top", :action=>"create"}) do |f|
-                  -# ここで同じ授業コードを持ってる授業を探していしょに飛ばす
-                  = f.hidden_field :lesson_id, value: lesson.id
-                  = f.hidden_field :code, value: lesson.code
-                  = f.submit "追加"
+                - Lesson.where('code = ?', lesson.code).each do |l|
+                  = form_for(@user_status, :url=>{:controller=>"top", :action=>"create"}) do |f|
+                    = f.hidden_field :lesson_id, value: l.id
+                    = f.hidden_field :code, value: l.code
+                    = f.submit "追加"
       - else
         - if params[:term_id] == "1"
           %h3 前期の取得可能の授業はありません

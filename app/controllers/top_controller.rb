@@ -4,7 +4,7 @@ class TopController < ApplicationController
     if user_signed_in?
       @lessons = current_user.lessons
     else
-      # redirect_to "new_user_session"
+      # redirect_to 'new_user_session_path'
     end
   end
 
@@ -28,8 +28,6 @@ class TopController < ApplicationController
         params[:term_id],
         params[:gread_id]
       )
-
-     # @lessons = Lesson.where("department_id = ? and wday = ? and period = ? "), current_user.department_id, params[:wday], params[:period]).where.not
     @user_status = LessonUser.new
   end
 
