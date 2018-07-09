@@ -35,11 +35,12 @@
               %td= lesson.unit
               %td= lesson.gread_id
               %td
-                - Lesson.where('code = ?', lesson.code).each do |l|
-                  = form_for(@user_status, :url=>{:controller=>"top", :action=>"create"}) do |f|
-                    = f.hidden_field :lesson_id, value: l.id
-                    = f.hidden_field :code, value: l.code
-                    = f.submit "追加"
+                - arrey = []
+                = form_for(@user_status, :url=>{:controller=>"top", :action=>"create"}) do |f|
+                  - Lesson.where('code = ?', lesson.code).each do |l|
+                    - arrey << l.id
+                  = f.hidden_field :lesson_ids, value: arrey
+                  = f.submit "追加"
       - else
         - if params[:term_id] == "1"
           %h3 前期の取得可能の授業はありません

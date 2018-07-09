@@ -33,18 +33,36 @@ class TopController < ApplicationController
 
   def create
     # binding.pry
-    lesson = LessonUser.create(lesson_id: lessonUser_create[:lesson_id], user_id: current_user.id)
+    # lesson = LessonUser.create(lesson_id: lessonUser_create[:lesson_id], user_id: current_user.id)
+
+    lessonUser_create['lesson_ids'].split(' ').each do |t|
+      lesson = LessonUser.new
+      lesson.lesson_id = t
+      lesson.user_id = current_user.id
+      lesson.save
+    end
+# def create
+#   product = Product.new
+#   product_params['type'].each do |t|
+#     product.name = product_params['name']
+#     product.about = product_params['about']
+#     product.type = t
+#     product.save
+#   end
+# end
 
 
-    # if a = params.require(:lesson_user).permit(:lesson_id)
-    #   # params.requireもし、createしたlessson.codeと同じ授業をwhereとかで持ってくる
-    #   LessonUser.create(lesson_id: lessonUser_create[ここを考える], user_id: current_user.id)
+    # Lesson.where('code = ?', lesson.code).each do |l|
+    #   lesson = LessonUser.new
+    #   lesson.lesson_id = l
+    #   lesson.user_id = current_user.id
+    #   lesson.save
     # end
     redirect_to "/"
   end
 
   private
   def lessonUser_create
-    params.require(:lesson_user).permit(:lesson_id)
+    params.require(:lesson_user).permit(:lesson_ids)
   end
 end
