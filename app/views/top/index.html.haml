@@ -1,6 +1,7 @@
 - if user_signed_in?
   %h3
     = "#{current_user.department.name}#{current_user.gread_id}年  #{current_user.email}のアカウント"
+  = render 'search_form'
   .term-container
     .previous_term
       %h4 前期

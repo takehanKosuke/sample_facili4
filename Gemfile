@@ -60,3 +60,5 @@ end
   gem 'erb2haml'
   gem 'haml-rails'
   gem 'bootstrap-sass', '3.2.0.0'
+  gem 'ransack'
+  gem 'bullet'
