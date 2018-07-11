@@ -17,16 +17,6 @@ hr.top{
   border-top: 2px solid #eeeeee;
 }
 
-td {
-  width:85px;
-  height: 85px;
-}
-
-td.period{
-  width: 20px;
-  height: 85px;
-}
-
 
 table td a{
   display:block;
@@ -35,16 +25,12 @@ table td a{
   text-decoration: none;
 }
 
-table.topTimetable td a:hover{
+td a:hover{
   background-color: #CCFFCC;
 }
 
 td.persent{
   background-color:#CCFFFF;
-}
-
-.topTimetable{
-  margin: 0px 30px 30px 30px;
 }
 
 
