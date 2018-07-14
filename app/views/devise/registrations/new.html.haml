@@ -1,37 +1,45 @@
-%h2 新規登録
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = devise_error_messages!
-  .form-group
-    = f.label "学科"
-    %br/
-    = f.collection_select :department_id, Department.all, :id, :name
-    %br/
-  .form-group
-    = f.label "学年"
-    %br/
-    = f.collection_select :gread_id, Gread.all, :id, :gread
-    = f.label "年"
-  .form-group
-    .field
-      = f.label :メールアドレス
-      %br/
-      = f.email_field :email, autofocus: true, autocomplete: "email"
-  .form-group
-    .field
-      = f.label :パスワード
-      - if @minimum_password_length
-        %em
-          (#{@minimum_password_length} 文字以上)
-      %br/
-      = f.password_field :password, autocomplete: "off"
-  .form-group
-    .field
-      = f.label :パスワード確認
-      %br/
-      = f.password_field :password_confirmation, autocomplete: "off"
-    .actions
-      = f.submit "新規登録"
-= render "devise/shared/links"
+.content
+  .card.card-container
+    %h2 新規登録
+    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      = devise_error_messages!
+      .form-group
+        = f.label "学科"
+        %br/
+        = f.collection_select :department_id, Department.all, :id, :name
+        %br/
+      .form-group
+        = f.label "学年"
+        %br/
+        = f.collection_select :gread_id, Gread.all, :id, :gread
+        = f.label "年"
+      .form-group
+        .field
+          .login-form
+            = f.label :メールアドレス
+            %br/
+            = f.email_field :email, autofocus: true, autocomplete: "email"
+      .form-group
+        .field
+          .login-form
+            = f.label :パスワード
+            - if @minimum_password_length
+              %em
+                (#{@minimum_password_length} 文字以上)
+            %br/
+            = f.password_field :password, autocomplete: "off"
+      .form-group
+        .field
+          .login-form
+            = f.label :パスワード確認
+            %br/
+            = f.password_field :password_confirmation, autocomplete: "off"
+        .actions.mgs
+          = f.submit "新規登録", class: 'btn btn-success'
+    = render "devise/shared/links"
+
+
+
 
 
 -# %form

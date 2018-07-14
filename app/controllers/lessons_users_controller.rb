@@ -7,6 +7,16 @@ class LessonsUsersController < ApplicationController
         lesson_user.destroy
       end
     end
-  redirect_to "/"
+    redirect_to "/"
+  end
+
+  def all_destroy
+    lesson_users = LessonUser.where('user_id = ? ',current_user.id)
+    lesson_users.each do |lesson_user|
+      if lesson_user.user_id == current_user.id
+        lesson_user.destroy
+      end
+    end
+    redirect_to "/"
   end
 end

@@ -35,7 +35,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-  gem 'letter_opener_web'
 end
 
 group :development do
@@ -62,3 +61,6 @@ end
   gem 'bootstrap-sass', '3.2.0.0'
   gem 'ransack'
   gem 'bullet'
+  gem 'bootstrap_form'
+  gem 'letter_opener_web'
+  gem 'data-confirm-modal'

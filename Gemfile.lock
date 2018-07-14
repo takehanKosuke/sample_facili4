@@ -44,6 +44,7 @@ GEM
       debug_inspector (>= 0.0.1)
     bootstrap-sass (3.2.0.0)
       sass (~> 3.2)
+    bootstrap_form (2.7.0)
     builder (3.2.3)
     bullet (5.7.5)
       activesupport (>= 3.0.0)
@@ -61,6 +62,8 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
     crass (1.0.4)
+    data-confirm-modal (1.6.2)
+      railties (>= 3.0)
     debug_inspector (0.0.3)
     devise (4.4.3)
       bcrypt (~> 3.0)
@@ -253,9 +256,11 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap-sass (= 3.2.0.0)
+  bootstrap_form
   bullet
   byebug
   coffee-rails (~> 4.1.0)
+  data-confirm-modal
   devise
   enum_help
   erb2haml

@@ -5,10 +5,14 @@ Rails.application.routes.draw do
   resources :lessons, only: [:create, :new, :show]
   resources :top, only: [:create, :index, :new] do
     collection do
-      get :search
+      get :search, :information
     end
   end
-  resources :lessons_users, only: [:destroy]
+  resources :lessons_users, only: [:destroy] do
+    collection do
+      delete :all_destroy
+    end
+  end
   resources :users, only: [:edit, :update]
 
   # get "/top/search" => "top#search"

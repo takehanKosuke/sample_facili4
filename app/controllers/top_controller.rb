@@ -1,13 +1,13 @@
 class TopController < ApplicationController
 
   def index
-    @q = Lesson.ransack(params[:q])
+    @q = Lesson.includes(:teacher).ransack(params[:q])
     @lessons = @q.result(distinct: true)
 
     if user_signed_in?
       @lessons = current_user.lessons
     else
-      # redirect_to 'new_user_session_path'
+      redirect_to new_user_session_path
     end
   end
 
@@ -17,7 +17,7 @@ class TopController < ApplicationController
 
   def new
     @lessons =
-      Lesson.where(
+      Lesson.includes(:teacher).where(
         "department_id = ? AND
         wday = ? AND
         period = ? AND
@@ -46,7 +46,7 @@ class TopController < ApplicationController
   end
 
   def search
-    @q = Lesson.search(search_params)
+    @q = Lesson.includes(:teacher).search(search_params)
     @lessons = @q.result(distinct: true)
     @user_status = LessonUser.new
   end
