@@ -38,6 +38,7 @@ td.persent{
   width: 120px;
   height: 60px;
 }
+
 .logo-mark{
   width: 60px;
   height: 60px;
@@ -47,9 +48,11 @@ td.persent{
 .previous_term{
   float: left;
 }
+
 .latter_period{
   float: left;
 }
+
 .btn{
   color: while;
 }
@@ -74,11 +77,9 @@ footer {
  */
 .card {
     background-color: #F7F7F7;
-    /* just in case there no content*/
     padding: 20px 25px 30px;
     margin: 0 auto 25px;
     margin-top: 50px;
-    /* shadows and rounded borders */
     -moz-border-radius: 2px;
     -webkit-border-radius: 2px;
     border-radius: 2px;
@@ -152,9 +153,7 @@ footer {
 }
 
 .btn.btn-signin {
-    /*background-color: #4d90fe; */
     background-color: #5bc0de;
-    /* background-color: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33));*/
     padding: 0px;
     font-weight: 700;
     font-size: 14px;
