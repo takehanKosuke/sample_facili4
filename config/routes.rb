@@ -2,10 +2,18 @@ Rails.application.routes.draw do
   devise_for :users
 
   root "top#index"
-  resources :lessons
-  resources :top
-  resources :lessons_users
-  resources :users
+  resources :lessons, only: [:create, :new, :show]
+  resources :top, only: [:create, :index, :new] do
+    collection do
+      get :search, :information
+    end
+  end
+  resources :lessons_users, only: [:destroy] do
+    collection do
+      delete :all_destroy
+    end
+  end
+  resources :users, only: [:edit, :update]
 
   # get "/top/search" => "top#search"
   # The priority is based upon order of creation: first created -> highest priority.

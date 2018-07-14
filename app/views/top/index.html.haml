@@ -1,81 +1,134 @@
 - if user_signed_in?
   %h3
     = "#{current_user.department.name}#{current_user.gread_id}年  #{current_user.email}のアカウント"
-  .term-container
-    .previous_term
-      %h4 前期
-      %table.table-bordered.topTimetable.col-xs10.col-ms10.col-md10.col-lg10
-        - period = 0
-        %tr.text-center
-          %th.col-xs-1.col-ms-1.col-md-1.col-lg-1
-          %th.col-xs-1.col-ms-1.col-md-1.col-lg-1 月曜
-          %th.col-xs-1.col-ms-1.col-md-1.col-lg-1 火曜
-          %th.col-xs-1.col-ms-1.col-md-1.col-lg-1 水曜
-          %th.col-xs-1.col-ms-1.col-md-1.col-lg-1 木曜
-          %th.col-xs-1.col-ms-1.col-md-1.col-lg-1 金曜
-          %th.col-xs-1.col-ms-1.col-md-1.col-lg-1 土曜
-        - while period <= 5 do
-          - wday = 0
+  = render 'search_form'
+  .visible-md-block.visible-lg-block
+    .content
+      .row.col-xs-10.col-ms-10.col-md-5.col-lg-5.col-md-offset-1
+        %h4 前期
+        %table.table-bordered
+          - period = 0
           %tr.text-center
-            %td
-              = period+1
-            - while wday <= 5 do
-              - if lesson = @lessons.find_by(period: period, wday: wday, term_id: [1, 3])
-                %td.persent= link_to lesson.name.truncate(15), lesson_path(lesson)
-              - else
-                %td= link_to"", new_top_path(wday: wday, period: period, term_id: [1, 3], gread_id: current_user.gread_id)
-              - wday = wday + 1
-          - period = 1 + period
-    .latter_period
-      %h4 後期
-      %table.table-bordered.topTimetable.col-xs10.col-ms10.col-md10.col-lg10
-        - period = 0
-        %tr.text-center
-          %th.col-xs-1.col-ms-1.col-md-1.col-lg-1
-          %th.col-xs-1.col-ms-1.col-md-1.col-lg-1 月曜
-          %th.col-xs-1.col-ms-1.col-md-1.col-lg-1 火曜
-          %th.col-xs-1.col-ms-1.col-md-1.col-lg-1 水曜
-          %th.col-xs-1.col-ms-1.col-md-1.col-lg-1 木曜
-          %th.col-xs-1.col-ms-1.col-md-1.col-lg-1 金曜
-          %th.col-xs-1.col-ms-1.col-md-1.col-lg-1 土曜
-        - while period <= 5 do
-          - wday = 0
+            %th.col-xs-1.col-ms-1.col-md-1.col-lg-1
+            %th.col-xs-1.col-ms-1.col-md-1.col-lg-1 月曜
+            %th.col-xs-1.col-ms-1.col-md-1.col-lg-1 火曜
+            %th.col-xs-1.col-ms-1.col-md-1.col-lg-1 水曜
+            %th.col-xs-1.col-ms-1.col-md-1.col-lg-1 木曜
+            %th.col-xs-1.col-ms-1.col-md-1.col-lg-1 金曜
+            %th.col-xs-1.col-ms-1.col-md-1.col-lg-1 土曜
+          - while period <= 5 do
+            - wday = 0
+            %tr.text-center
+              %td
+                = period+1
+              - while wday <= 5 do
+                - if lesson = @lessons.find_by(period: period, wday: wday, term_id: [1, 3])
+                  %td.persent= link_to lesson.name.truncate(15), lesson_path(lesson)
+                - else
+                  %td= link_to"", new_top_path(wday: wday, period: period, term_id: [1, 3], gread_id: current_user.gread_id)
+                - wday = wday + 1
+            - period = 1 + period
+      .col-xs-10.col-ms-10.col-md-5.col-lg-5
+        %h4 後期
+        %table.table-bordered
+          - period = 0
           %tr.text-center
-            %td
-              = period+1
-            - while wday <= 5 do
-              - if lesson = @lessons.find_by(period: period, wday: wday, term_id: [2, 4])
-                %td.persent= link_to lesson.name, lesson_path(lesson)
-              - else
-                %td= link_to"", new_top_path(wday: wday, period: period, term_id: [2, 4], gread_id: current_user.gread_id)
-              - wday = wday + 1
-          - period = 1 + period
-      - a = 0
-      - current_user.lessons.each do |lesson|
-        - a = lesson.unit + a
-    -# = link_to "時間割をリセットする",
+            %th.col-xs-1.col-ms-1.col-md-1.col-lg-1
+            %th.col-xs-1.col-ms-1.col-md-1.col-lg-1 月曜
+            %th.col-xs-1.col-ms-1.col-md-1.col-lg-1 火曜
+            %th.col-xs-1.col-ms-1.col-md-1.col-lg-1 水曜
+            %th.col-xs-1.col-ms-1.col-md-1.col-lg-1 木曜
+            %th.col-xs-1.col-ms-1.col-md-1.col-lg-1 金曜
+            %th.col-xs-1.col-ms-1.col-md-1.col-lg-1 土曜
+          - while period <= 5 do
+            - wday = 0
+            %tr.text-center
+              %td
+                = period+1
+              - while wday <= 5 do
+                - if lesson = @lessons.find_by(period: period, wday: wday, term_id: [2, 4])
+                  %td.persent= link_to lesson.name, lesson_path(lesson)
+                - else
+                  %td= link_to"", new_top_path(wday: wday, period: period, term_id: [2, 4], gread_id: current_user.gread_id)
+                - wday = wday + 1
+              - period = 1 + period
+        - a = 0
+        - current_user.lessons.each do |lesson|
+          - a = lesson.unit + a
+      = link_to "時間割をリセットする", '/lessons_users/all_destroy', method: :delete, class: "btn btn-danger"
+  .visible-xs-block.visible-sm-block
+    .content
+      .row.col-xs-12.col-ms-12
+        %h4 前期
+        %table.table-bordered
+          - period = 0
+          %tr.text-center
+            %th.col-xs-1.col-ms-1.col-md-1.col-lg-1
+            %th.col-xs-1.col-ms-1.col-md-1.col-lg-1 月曜
+            %th.col-xs-1.col-ms-1.col-md-1.col-lg-1 火曜
+            %th.col-xs-1.col-ms-1.col-md-1.col-lg-1 水曜
+            %th.col-xs-1.col-ms-1.col-md-1.col-lg-1 木曜
+            %th.col-xs-1.col-ms-1.col-md-1.col-lg-1 金曜
+            %th.col-xs-1.col-ms-1.col-md-1.col-lg-1 土曜
+          - while period <= 5 do
+            - wday = 0
+            %tr.text-center
+              %td
+                = period+1
+              - while wday <= 5 do
+                - if lesson = @lessons.find_by(period: period, wday: wday, term_id: [1, 3])
+                  %td.persent= link_to lesson.name.truncate(15), lesson_path(lesson)
+                - else
+                  %td= link_to"", new_top_path(wday: wday, period: period, term_id: [1, 3], gread_id: current_user.gread_id)
+                - wday = wday + 1
+            - period = 1 + period
+      .col-xs-12.col-ms-12
+        %h4 後期
+        %table.table-bordered
+          - period = 0
+          %tr.text-center
+            %th.col-xs-1.col-ms-1.col-md-1.col-lg-1
+            %th.col-xs-1.col-ms-1.col-md-1.col-lg-1 月曜
+            %th.col-xs-1.col-ms-1.col-md-1.col-lg-1 火曜
+            %th.col-xs-1.col-ms-1.col-md-1.col-lg-1 水曜
+            %th.col-xs-1.col-ms-1.col-md-1.col-lg-1 木曜
+            %th.col-xs-1.col-ms-1.col-md-1.col-lg-1 金曜
+            %th.col-xs-1.col-ms-1.col-md-1.col-lg-1 土曜
+          - while period <= 5 do
+            - wday = 0
+            %tr.text-center
+              %td
+                = period+1
+              - while wday <= 5 do
+                - if lesson = @lessons.find_by(period: period, wday: wday, term_id: [2, 4])
+                  %td.persent= link_to lesson.name, lesson_path(lesson)
+                - else
+                  %td= link_to"", new_top_path(wday: wday, period: period, term_id: [2, 4], gread_id: current_user.gread_id)
+                - wday = wday + 1
+              - period = 1 + period
+        - a = 0
+        - current_user.lessons.each do |lesson|
+          - a = lesson.unit + a
+      = link_to "時間割をリセットする", '/lessons_users/all_destroy', method: :delete, class: "btn btn-danger", data: { confirm: '全ての授業を削除しますか？' }
   .content
-    .row
-      .col-md-10.col-md-offset-1
-        %h4.clearfix
-          計#{a}単位
-        - if @lessons.present?
-          %h4 〜必要教科書一覧〜
-          %table.table-striped.col-xs-12.col-ms-12.col-md-12.col-lg-12
-            %tr
-              %th.text-center.col-xs-2.col-ms-2.col-md-2.col-lg-2.ml-1 授業名
-              %th.text-center.col-xs-5.col-ms-5.col-md-5.col-lg-5 教科書名
-              %th.text-center.col-xs-5.col-ms-5.col-md-5.col-lg-5 参考書名
-              %th
-              %th
-            - current_user.lessons.each do |lesson|
-              -if lesson.textbook.present? || lesson.referencebook.present?
-                %tr
-                  %td.text-center= lesson.name
-                  %td= lesson.textbook
-                  %td= lesson.referencebook
-                  %td
-                  %td
-          = link_to "購入する", "https://www.amazon.co.jp/?tag=hydraamazonav-22&hvadid=247720376301&hvpos=1t1&hvnetw=g&hvrand=10879976284510714580&hvpone=&hvptwo=&hvqmt=e&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1009318&hvtargid=kwd-10573980&ref=pd_sl_7ibq2d37on_e", class: "btn btn-success col-xs-2 col-ms-2 col-md-2 col-lg-2 mt-3"
+    .col-md-10.col-md-offset-1
+      - if @lessons.present?
+        %h4 〜必要教科書一覧〜
+        %table.table-striped.col-xs-12.col-ms-12.col-md-12.col-lg-12
+          %tr
+            %th.text-center.col-xs-2.col-ms-2.col-md-2.col-lg-2.ml-1 授業名
+            %th.text-center.col-xs-5.col-ms-5.col-md-5.col-lg-5 教科書名
+            %th.text-center.col-xs-5.col-ms-5.col-md-5.col-lg-5 参考書名
+            %th
+            %th
+          - current_user.lessons.each do |lesson|
+            -if lesson.textbook.present? || lesson.referencebook.present?
+              %tr
+                %td.text-center= lesson.name
+                %td= lesson.textbook
+                %td= lesson.referencebook
+                %td
+                %td
+        = link_to "購入する", "https://www.amazon.co.jp/?tag=hydraamazonav-22&hvadid=247720376301&hvpos=1t1&hvnetw=g&hvrand=10879976284510714580&hvpone=&hvptwo=&hvqmt=e&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1009318&hvtargid=kwd-10573980&ref=pd_sl_7ibq2d37on_e", class: "btn btn-success col-xs-2 col-ms-2 col-md-2 col-lg-2 mt-3"
 - else
   %h3 ログインしてください
