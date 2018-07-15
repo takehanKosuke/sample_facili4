@@ -1,7 +1,44 @@
 // Place all the styles related to the top controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// このサイトの使い方
 .logo-info img{
   height: 300px;
 }
 
+// 検索フォーム
+.ransack-top{
+  background-color: #008000;
+  border-radius: 10px 10px 7px 7px;
+  border: 1px #008000;
+  color: white;
+  .ransack-form{
+    background-color: white;
+    border: solid 1px #008000;
+    color: black;
+    padding: 20px;
+    border-radius: 0px 0px 7px 7px;
+  }
+}
+
+// 時間割表
+
+table{
+  width: 100%;
+}
+
+table td a{
+  display:block;
+  width:100%;
+  height:100%;
+  text-decoration: none;
+}
+
+td a:hover{
+  background-color: #CCFFCC;
+}
+
+td.persent{
+  background-color:#CCFFFF;
+}
