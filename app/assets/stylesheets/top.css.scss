@@ -23,7 +23,6 @@
 }
 
 // 時間割表
-
 table{
   width: 100%;
 }
@@ -45,4 +44,20 @@ td a:hover{
 
 td.persent{
   background-color:#CCFFFF;
+}
+
+// 必要教科書
+.need-textbooks-head{
+  background-color: #008BBB;
+  border-radius: 10px 10px 0px 0px;
+  color: white;
+  border: 1px #008BBB;
+  table {
+    color: black;
+  }
+  h4{
+    margin-bottom: 0px;
+    padding:10px 0px;
+  }
+
 }

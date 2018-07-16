@@ -11,4 +11,12 @@ class User < ActiveRecord::Base
   has_many :lesson_users
   has_many :lessons, through: :lesson_users
   has_many :user_books
+
+
+  def self.ture_user_lessons(current_user)
+    ture_user_lessons = []
+    current_user.lessons.each do |lesson|
+      ture_user_lessons << lesson unless ture_user_lessons.map{|e|e.code}.include?(lesson.code)
+    end
+  end
 end

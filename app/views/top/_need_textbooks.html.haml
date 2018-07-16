@@ -1,0 +1,21 @@
+.content.clearfix
+  .col-md-10.col-md-offset-1.mgs
+    - if @lessons.present?
+      .need-textbooks-head
+        %h4.ml-3 必要教科書一覧
+        %table.table-striped.col-xs-12.col-ms-12.col-md-12.col-lg-12
+          %tr
+            %th.text-center.col-xs-2.col-ms-2.col-md-2.col-lg-2.ml-1 授業名
+            %th.text-center.col-xs-5.col-ms-5.col-md-5.col-lg-5 教科書名
+            %th.text-center.col-xs-5.col-ms-5.col-md-5.col-lg-5 参考書名
+            %th
+            %th
+          - User.ture_user_lessons(current_user).each do |lesson|
+            -if lesson.textbook.present? || lesson.referencebook.present?
+              %tr
+                %td.text-center= lesson.name
+                %td= lesson.textbook
+                %td= lesson.referencebook
+                %td
+                %td
+      = link_to "購入する", "https://www.amazon.co.jp/?tag=hydraamazonav-22&hvadid=247720376301&hvpos=1t1&hvnetw=g&hvrand=10879976284510714580&hvpone=&hvptwo=&hvqmt=e&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1009318&hvtargid=kwd-10573980&ref=pd_sl_7ibq2d37on_e", class: "btn btn-success col-xs-2 col-ms-2 col-md-2 col-lg-2 mt-3"
