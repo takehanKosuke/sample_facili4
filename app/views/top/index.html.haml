@@ -110,12 +110,13 @@
         - a = lesson.unit + a
     .row.col-xs-10.col-ms-10.col-md-10.col-lg-10.col-md-offset-1
       = link_to "時間割をリセットする", '/lessons_users/all_destroy', method: :delete, class: "btn btn-danger mgs", data: { confirm: '全ての授業を削除しますか？' }
--# ture_user_lessons配列を作成
-  
--# current_user.lessonsに同じ授業コードのものがあれば配列に入れない
 .content.clearfix
   .col-md-10.col-md-offset-1.mgs
+    - ture_user_lessons = []
+    - current_user.lessons.each do |lesson|
+      - ture_user_lessons << lesson unless ture_user_lessons.map{|e|e.code}.include?(lesson.code)
     - if @lessons.present?
+      %h4 総単位数・・・#{ture_user_lessons.map{|e|e.unit}.sum}単位
       %h4 〜必要教科書一覧〜
       %table.table-striped.col-xs-12.col-ms-12.col-md-12.col-lg-12
         %tr
@@ -124,7 +125,7 @@
           %th.text-center.col-xs-5.col-ms-5.col-md-5.col-lg-5 参考書名
           %th
           %th
-        - current_user.lessons.each do |lesson|
+        - ture_user_lessons.each do |lesson|
           -if lesson.textbook.present? || lesson.referencebook.present?
             %tr
               %td.text-center= lesson.name
