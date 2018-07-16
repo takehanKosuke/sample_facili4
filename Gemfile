@@ -58,7 +58,7 @@ end
   gem 'rails-erd'
   gem 'erb2haml'
   gem 'haml-rails'
-  gem 'bootstrap-sass', '3.2.0.0'
+  gem 'bootstrap-sass'
   gem 'ransack'
   gem 'bullet'
   gem 'bootstrap_form'
