@@ -61,6 +61,5 @@ end
   gem 'bootstrap-sass'
   gem 'ransack'
   gem 'bullet'
-  gem 'bootstrap_form'
   gem 'letter_opener_web'
   gem 'data-confirm-modal'
