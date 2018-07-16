@@ -110,7 +110,10 @@
         - a = lesson.unit + a
     .row.col-xs-10.col-ms-10.col-md-10.col-lg-10.col-md-offset-1
       = link_to "時間割をリセットする", '/lessons_users/all_destroy', method: :delete, class: "btn btn-danger mgs", data: { confirm: '全ての授業を削除しますか？' }
-.content
+-# ture_user_lessons配列を作成
+  
+-# current_user.lessonsに同じ授業コードのものがあれば配列に入れない
+.content.clearfix
   .col-md-10.col-md-offset-1.mgs
     - if @lessons.present?
       %h4 〜必要教科書一覧〜
