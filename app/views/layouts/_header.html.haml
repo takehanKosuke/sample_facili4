@@ -21,8 +21,12 @@
 -#             %li.nav-link= link_to"ログイン",new_user_session_path, class: "btn btn-info"
 -#   %hr.top
 
-%nav.navbar.navbar-expand-md.navbar-dark.bg-dark.mb-4
-  %a.navbar-brand{:href => "#"} Top navbar
+%nav.navbar.navbar-expand-md.navbar-defo
+  .navbar-brand
+    %a{:href => "/top"}
+      %img.logo-mark{:alt => "ふぁしり", :src => "/assets/facili.png"}
+    %a{:href => "/top"}
+      %img.logo{:alt => "ふぁしり", :src => "/assets/facili_logo.png"}
   %button.navbar-toggler{"aria-controls" => "navbarCollapse", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarCollapse", "data-toggle" => "collapse", :type => "button"}
     %span.navbar-toggler-icon
   #navbarCollapse.collapse.navbar-collapse
