@@ -22,7 +22,7 @@
 -#   %hr.top
 
 %nav.navbar.navbar-expand-md.navbar-defo
-  .navbar-brand
+  .navbar-brand.mobaile
     %a{:href => "/top"}
       %img.logo-mark{:alt => "ふぁしり", :src => "/assets/facili.png"}
     %a{:href => "/top"}
@@ -32,9 +32,7 @@
   #navbarCollapse.collapse.navbar-collapse
     %ul.navbar-nav.mr-auto
       %li.nav-item.active
-        %a.nav-link{:href => "#"}
-          Home
-          %span.sr-only (current)
+        .nav-link= link_to"プロフィール編集", "/users/#{current_user.id}/edit"
       %li.nav-item
         %a.nav-link{:href => "#"} Link
       %li.nav-item

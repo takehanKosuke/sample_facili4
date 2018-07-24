@@ -189,3 +189,13 @@ h1 .slogan{
   font-family: fantasy;
   font-size: 100px;
 }
+
+
+
+
+/*---スマホ---*/
+@media only screen and (max-width: 767px) {
+  .navbar-brand.mobaile{
+    height: 100%;
+  }
+}
