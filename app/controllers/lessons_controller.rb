@@ -7,6 +7,12 @@ class LessonsController < ApplicationController
   end
 
   def create
+    @lesson = Lesson.lesson_create.new
+    if @lesson.save
+      redirect_to :root #成功の場合
+    else
+      render 'new' #失敗の場合
+    end
     Lesson.create(lesson_create)
     redirect_to "/"
   end
