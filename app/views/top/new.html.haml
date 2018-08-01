@@ -12,38 +12,37 @@
   - wwday = "土"
 - pperiod =params[:period].to_i
 - pperiod = pperiod + 1
-.content
-  .row
-    .col-md-10.col-md-offset-1
-      %h3= "#{wwday}曜日#{pperiod}時間目の授業"
-      - if @lessons.present?
-        %table.table-bordered.table-striped.col-xs10.col-ms10
-          %tr
-            %th.col-xs-2.col-ms-2.col-md-2.col-lg-2 授業名
-            %th.col-xs-2.co2-ms-2.col-md-2.col-lg-2 先生名
-            %th.col-xs-3.col-ms-3.col-md-3.col-lg-3 教科書名
-            %th.col-xs-2.col-ms-2.col-md-2.col-lg-2 参考書名
-            %th.col-xs-1.col-ms-1.col-md-1.col-lg-1 単位数
-            %th.col-xs-1.col-ms-1.col-md-1.col-lg-1 年次
-            %th.col-xs-1.col-ms-1.col-md-1.col-lg-1
-          - @lessons.each do |lesson|
-            %tr
-              %td= lesson.name
-              %td= lesson.teacher.name
-              %td= lesson.textbook
-              %td= lesson.referencebook
-              %td= lesson.unit
-              %td= lesson.gread_id
-              %td
-                - arrey = []
-                = form_for(@user_status, :url=>{:controller=>"top", :action=>"create"}) do |f|
-                  - Lesson.where('code = ?', lesson.code).each do |l|
-                    - arrey << l.id
-                  = f.hidden_field :lesson_ids, value: arrey
-                  = f.submit "追加"
-      - else
-        - if params[:term_id] == "1"
-          %h3 前期の取得可能の授業はありません
-        - else
-          %h3 後期の取得可能授業はありません
-      = link_to"トップに戻る" ,"/", class: "btn btn-success mt-3"
+
+.row
+  %h3= "#{wwday}曜日#{pperiod}時間目の授業"
+  - if @lessons.present?
+    %table.table-bordered.table-striped
+      %tr
+        %th.col-xs-2.col-lg-2 授業名
+        %th.col-xs-2.col-lg-2 先生名
+        %th.col-xs-3.col-lg-3 教科書名
+        %th.col-xs-2.col-lg-2 参考書名
+        %th.col-xs-1.col-lg-1 単位数
+        %th.col-xs-1.col-lg-1 年次
+        %th.col-xs-1.col-lg-1
+      - @lessons.each do |lesson|
+        %tr
+          %td= lesson.name
+          %td= lesson.teacher.name
+          %td= lesson.textbook
+          %td= lesson.referencebook
+          %td= lesson.unit
+          %td= lesson.gread_id
+          %td
+            - arrey = []
+            = form_for(@user_status, :url=>{:controller=>"top", :action=>"create"}) do |f|
+              - Lesson.where('code = ?', lesson.code).each do |l|
+                - arrey << l.id
+              = f.hidden_field :lesson_ids, value: arrey
+              = f.submit "追加", class: 'btn btn-info'
+  - else
+    - if params[:term_id] == "1"
+      %h3 前期の取得可能の授業はありません
+    - else
+      %h3 後期の取得可能授業はありません
+  = link_to"トップに戻る" ,"/", class: "btn btn-success mt-3"

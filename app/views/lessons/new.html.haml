@@ -1,3 +1,8 @@
+- if @lesson.errors.any?
+  #error_explanation.alert.alert-danger
+    %ul
+      - @lesson.errors.full_messages.each do |message|
+        %li= message
 %div
   = form_for (@lesson) do |f|
     %h3= f.label "学部・学課選択"

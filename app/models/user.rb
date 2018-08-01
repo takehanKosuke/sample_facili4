@@ -18,5 +18,6 @@ class User < ActiveRecord::Base
     current_user.lessons.each do |lesson|
       ture_user_lessons << lesson unless ture_user_lessons.map{|e|e.code}.include?(lesson.code)
     end
+    return ture_user_lessons
   end
 end
