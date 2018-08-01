@@ -1,43 +1,41 @@
-.content
-  .row
-    .col-md-10.col-md-offset-1
-      = link_to"トップに戻る" ,"/", class: "btn btn-success"
-      = link_to"この授業を取り消す","/lessons_users/#{@lesson_user.id}", method: :delete, class: "btn btn-danger"
-      %table.table-striped.table-bordered.col-xs-12.col-ms-12.col-md-12.col-lg-12
-        %tr
-          %td.col-xs-2.col-ms-2.col-md-2.col-lg-2 授業コード
-          %td.col-xs-10.col-ms-10.col-md-10.col-lg-10= @lesson.code
-        %tr
-          %td.col-xs-2.col-ms-2.col-md-2.col-lg-2 講義名
-          %td.col-xs-10.col-ms-10.col-md-10.col-lg-10= @lesson.name
-        %tr
-          %td.col-xs-2.col-ms-2.col-md-2.col-lg-2 講師名
-          %td.col-xs-10.col-ms-10.col-md-10.col-lg-10= @lesson.teacher.name
-        %tr
-          %td.col-xs-2.col-ms-2.col-md-2.col-lg-2 教科書名
-          %td.col-xs-10.col-ms-10.col-md-10.col-lg-10= @lesson.textbook
-        %tr
-          %td.col-xs-2.col-ms-2.col-md-2.col-lg-2 単位数
-          %td.col-xs-10.col-ms-10.col-md-10.col-lg-10= @lesson.unit
-        %tr
-          %td.col-xs-2.col-ms-2.col-md-2.col-lg-2 年次
-          %td.col-xs-10.col-ms-10.col-md-10.col-lg-10= @lesson.gread_id
-        %tr
-          %td.col-xs-2.col-ms-2.col-md-2.col-lg-2 区分
-          %td.col-xs-10.col-ms-10.col-md-10.col-lg-10= @lesson.classification.word
-        %tr
-          %td.col-xs-2.col-ms-2.col-md-2.col-lg-2 目的
-          %td.col-xs-10.col-ms-10.col-md-10.col-lg-10= @lesson.target
-        %tr
-          %td.col-xs-2.col-ms-2.col-md-2.col-lg-2 内容
-          %td.col-xs-10.col-ms-10.col-md-10.col-lg-10= @lesson.contents
-        %tr
-          %td.col-xs-2.col-ms-2.col-md-2.col-lg-2 レベル
-          %td.col-xs-10.col-ms-10.col-md-10.col-lg-10= @lesson.level
-        %tr
-          %td.col-xs-2.col-ms-2.col-md-2.col-lg-2 評価
-          %td.col-xs-10.col-ms-10.col-md-10.col-lg-10= @lesson.evaluation
-        %tr
-          %td.col-xs-2.col-ms-2.col-md-2.col-lg-2 授業計画
-          %td.col-xs-10.col-ms-10.col-md-10.col-lg-10= @lesson.plan
+.row
+  = link_to"トップに戻る" ,"/", class: "btn btn-success mb-3 mr-2"
+  = link_to"この授業を取り消す","/lessons_users/#{@lesson_user.id}", method: :delete, class: "btn btn-danger mb-3"
+  %table.table-striped.table-bordered
+    %tr
+      %td.col-xs-2col-lg-2 授業コード
+      %td.col-xs-10.col-ms-10.col-md-10.col-lg-10= @lesson.code
+    %tr
+      %td.col-xs-2col-lg-2 講義名
+      %td.col-xs-10.col-lg-10= @lesson.name
+    %tr
+      %td.col-xs-2col-lg-2 講師名
+      %td.col-xs-10.col-lg-10= @lesson.teacher.name
+    %tr
+      %td.col-xs-2col-lg-2 教科書名
+      %td.col-xs-10.col-lg-10= @lesson.textbook
+    %tr
+      %td.col-xs-2col-lg-2 単位数
+      %td.col-xs-10.col-lg-10= @lesson.unit
+    %tr
+      %td.col-xs-2col-lg-2 年次
+      %td.col-xs-10.col-lg-10= @lesson.gread_id
+    %tr
+      %td.col-xs-2col-lg-2 区分
+      %td.col-xs-10.col-lg-10= @lesson.classification.word
+    %tr
+      %td.col-xs-2col-lg-2 目的
+      %td.col-xs-10.col-lg-10= @lesson.target
+    %tr
+      %td.col-xs-2col-lg-2 内容
+      %td.col-xs-10.col-lg-10= @lesson.contents
+    %tr
+      %td.col-xs-2col-lg-2 レベル
+      %td.col-xs-10.col-lg-10= @lesson.level
+    %tr
+      %td.col-xs-2col-lg-2 評価
+      %td.col-xs-10.col-lg-10= @lesson.evaluation
+    %tr
+      %td.col-xs-2col-lg-2 授業計画
+      %td.col-xs-10.col-lg-10= @lesson.plan
 
