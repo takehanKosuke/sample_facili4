@@ -23,14 +23,19 @@ hr.top{
 
 
 .logo{
+/*  position: absolute;
+  top: 3px;
+  left: 85px;*/
   width: 120px;
   height: 60px;
 }
 
 .logo-mark{
+/*  position: absolute;
+  top: 3px;
+  left: 5px;*/
   width: 60px;
   height: 60px;
-  margin-left: 20px;
 }
 
 .previous_term{
@@ -197,5 +202,20 @@ h1 .slogan{
 @media only screen and (max-width: 767px) {
   .navbar-brand.mobaile{
     height: 100%;
+  }
+  .logo{
+    position: relative;
+    top: 0px;
+    left: 0px;
+    width: 120px;
+    height: 60px;
+  }
+
+  .logo-mark{
+    position: relative;
+    top: 0px;
+    left: 0px;
+    width: 60px;
+    height: 60px;
   }
 }

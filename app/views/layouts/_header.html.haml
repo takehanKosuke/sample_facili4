@@ -21,25 +21,68 @@
 -#             %li.nav-link= link_to"ログイン",new_user_session_path, class: "btn btn-info"
 -#   %hr.top
 
-%nav.navbar.navbar-expand-md.navbar-defo
-  .navbar-brand.mobaile
-    %a{:href => "/top"}
-      %img.logo-mark{:alt => "ふぁしり", :src => "/assets/facili.png"}
-    %a{:href => "/top"}
-      %img.logo{:alt => "ふぁしり", :src => "/assets/facili_logo.png"}
-  %button.navbar-toggler{"aria-controls" => "navbarCollapse", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarCollapse", "data-toggle" => "collapse", :type => "button"}
-    %span.navbar-toggler-icon
-  #navbarCollapse.collapse.navbar-collapse
-    %ul.navbar-nav.mr-auto
-      %li.nav-item.active
-        .nav-link= link_to"プロフィール編集", "/users/#{current_user.id}/edit"
-      %li.nav-item
-        %a.nav-link{:href => "#"} Link
-      %li.nav-item
-        %a.nav-link.disabled{:href => "#"} Disabled
-    %form.form-inline.mt-2.mt-md-0
-      %input.form-control.mr-sm-2{"aria-label" => "Search", :placeholder => "Search", :type => "text"}/
-      %button.btn.btn-outline-success.my-2.my-sm-0{:type => "submit"} Search
+-# %nav.navbar.navbar-expand-lg.navbar-white
+-#   .navbar-brand.mobaile
+-#     %a{:href => "/top"}
+-#       %img.logo-mark{:alt => "ふぁしり", :src => "/assets/facili.png"}
+-#     %a{:href => "/top"}
+-#       %img.logo{:alt => "ふぁしり", :src => "/assets/facili_logo.png"}
+-#   %button.navbar-toggler{"aria-controls" => "navbarCollapse", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarCollapse", "data-toggle" => "collapse", :type => "button"}
+-#     %span.navbar-toggler-icon
+-#   #navbarCollapse.collapse.navbar-collapse
+-#     .text-left
+-#       - if user_signed_in?
+-#         %ul.navbar-nav.mt-2
+-#           %li.nav-item= link_to"プロフィール編集", "/users/#{current_user.id}/edit", class: "btn btn-success"
+-#           %li.nav-item= link_to"ログアウト",destroy_user_session_path, method: :delete, class: "btn btn-warning"
+-#           %li.nav-item= link_to'このサイトの使い方','/top/information', class: "btn btn-primary"
+-#         .sp-ransack-form.visible-xs-block.visible-sm-block.mgs
+-#           = search_form_for(@q, :url=>{:controller=>"top", :action=>"search"}) do |f|
+-#             = f.label :name_cont, '授業名'
+-#             = f.search_field :name_cont
+-#             = f.submit '検索'
+-#       - else
+-#         %ul.navbar-nav.mt-2.mt-md-0
+-#           %li.nav-item= link_to"新規登録",new_user_registration_path, class: "btn btn-success"
+-#           %li.nav-item= link_to"ログイン",new_user_session_path, class: "btn btn-info"
+-#           %li.nav-item= link_to'このサイトの使い方','/top/information', class: "btn btn-primary"
 
+%header
+  .conteiner
+    %nav.navber-expand-lg.navber-white
+      .navber-brand
+        %a{:href => "/top"}
+          %img.logo-mark{:alt => "ふぁしり", :src => "/assets/facili.png"}
+        %a{:href => "/top"}
+          %img.logo{:alt => "ふぁしり", :src => "/assets/facili_logo.png"}
+      %button.naver-toggler{'data-toggle'=>'collapse', 'data-target'=>'#menu'}
+        %span.navber-toggler-icon
+      #menu.collapse.navbar-collapse
+        -if user_signed_in?
+          %ul.navbar-nav
+            %li.nav-item= link_to'プロフィール編集', '/users/#{current_user.id}/edit', class: 'btn btn-success nav-link'
+            %li.nav-item= link_to'ログアウト', destroy_user_session_path, method: :delete, class: 'btn btn-warning nav-link'
+            %li.nav-item= link_to'このサイトの使い方', '/top/information', class: 'btn btn-primary nav-link'
+          .sp-ransack-form.visible-xs-block.visible-sm-block
+            = search_form_for(@q, :url=>{:controller=>"top", :action=>"search"}) do |f|
+              = f.label :name_cont, '授業名'
+              = f.search_field :name_cont
+              = f.submit '検索'
+        - else
+          %ul.navbar-nav.mt-2
+            %li.nav-item= link_to"新規登録",new_user_registration_path, class: "btn btn-success"
+            %li.nav-item= link_to"ログイン",new_user_session_path, class: "btn btn-info"
+            %li.nav-item= link_to'このサイトの使い方','/top/information', class: "btn btn-primary"
+-# %header
+-#   .conteiner
+-#     %nav.navbar.navber-expand.navbar-info
+-#       .navber-brand= link_to'ロゴ','/'
+-#       %ul.navbar-nav
+-#         %li.nav-item
+-#           %a.nav-link{:href => '/'} link1
+-#         %li.nav-item
+-#           %a.nav-link{:href => '/'} link2
+-#         %li.nav-item
+-#           %a.nav-link{:href => '/'} link3
 
 

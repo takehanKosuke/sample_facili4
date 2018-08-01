@@ -1,5 +1,6 @@
-.row.col-xs-10.col-ms-10.col-md-10.col-lg-10.col-md-offset-1
-  = render 'search_form'
+.visible-md-block.visible-lg-block
+  .row.col-xs-10.col-ms-10.col-md-10.col-lg-10.col-md-offset-1
+    = render 'search_form'
 .visible-md-block.visible-lg-block
   .content
     .row.col-xs-10.col-ms-10.col-md-5.col-lg-5.col-md-offset-1
@@ -107,3 +108,18 @@
     .row.col-xs-10.col-ms-10.col-md-10.col-lg-10.col-md-offset-1
       = link_to "時間割をリセットする", '/lessons_users/all_destroy', method: :delete, class: "btn btn-danger mgs", data: { confirm: '全ての授業を削除しますか？'}
 = render 'need_textbooks'
+.row.mt-5
+  .col-3.bg-info
+    1
+  .col-4.bg-success
+    2
+  .col-5.bg-danger
+    3
+.row.mt-3
+  .col-3.bg-info.order-3
+    1
+  .col-4.bg-success.order-2
+    2
+  .col-5.bg-danger.order-1
+    3
+
