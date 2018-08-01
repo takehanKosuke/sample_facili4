@@ -63,7 +63,7 @@
             %li.nav-item= link_to'プロフィール編集', '/users/#{current_user.id}/edit', class: 'btn btn-success nav-link'
             %li.nav-item= link_to'ログアウト', destroy_user_session_path, method: :delete, class: 'btn btn-warning nav-link'
             %li.nav-item= link_to'このサイトの使い方', '/top/information', class: 'btn btn-primary nav-link'
-          .sp-ransack-form.visible-xs-block.visible-sm-block
+          .sp-ransack-form.visible-xs-block
             = search_form_for(@q, :url=>{:controller=>"top", :action=>"search"}) do |f|
               = f.label :name_cont, '授業名'
               = f.search_field :name_cont
