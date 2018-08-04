@@ -14,25 +14,21 @@
 - pperiod = pperiod + 1
 
 .row
-  %h3= "#{wwday}曜日#{pperiod}時間目の授業"
   - if @lessons.present?
+    %h3 #{wwday}曜日#{pperiod}時間目の授業
     %table.table-bordered.table-striped
       %tr
         %th.col-xs-2.col-lg-2 授業名
-        %th.col-xs-2.col-lg-2 先生名
-        %th.col-xs-3.col-lg-3 教科書名
-        %th.col-xs-2.col-lg-2 参考書名
+        %th.col-xs-1.col-lg-1 先生名
+        %th.col-xs-5.col-lg-5 成績
         %th.col-xs-1.col-lg-1 単位数
-        %th.col-xs-1.col-lg-1 年次
         %th.col-xs-1.col-lg-1
       - @lessons.each do |lesson|
         %tr
           %td= lesson.name
           %td= lesson.teacher.name
-          %td= lesson.textbook
-          %td= lesson.referencebook
+          %td= lesson.evaluation
           %td= lesson.unit
-          %td= lesson.gread_id
           %td
             - arrey = []
             = form_for(@user_status, :url=>{:controller=>"top", :action=>"create"}) do |f|
@@ -42,7 +38,7 @@
               = f.submit "追加", class: 'btn btn-info'
   - else
     - if params[:term_id] == "1"
-      %h3 前期の取得可能の授業はありません
+      %h3 #{wwday}曜日#{pperiod}時間目の前期の取得可能の授業はありません。
     - else
-      %h3 後期の取得可能授業はありません
+      %h3 #{wwday}曜日#{pperiod}時間目の後期の取得可能授業はありません。
   = link_to"トップに戻る" ,"/", class: "btn btn-success mt-3"

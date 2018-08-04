@@ -52,7 +52,7 @@
               - wday = wday + 1
             - period = 1 + period
     %h4.text-right 総単位数・・・#{User.ture_user_lessons(current_user).map{|e|e.unit}.sum}単位
-  = link_to "時間割をリセットする", '/lessons_users/all_destroy', method: :delete, class: "btn btn-danger ", data: { confirm: '全ての授業を削除しますか？' }
+  = link_to "時間割をリセットする", '/lessons_users/all_destroy', method: :delete, class: "btn btn-danger ", data: { confirm: '全ての授業を削除しますか？', cancel: 'やめる', commit: '削除する'}, title: '授業削除'
 - if @lessons.present?
   .need-textbooks-head
     %h4.ml-3 必要教科書一覧
