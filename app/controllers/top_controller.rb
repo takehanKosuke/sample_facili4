@@ -23,13 +23,15 @@ class TopController < ApplicationController
         period = ? AND
         gread_id <= ? AND
         term_id in (?) AND
-        gread_id <= ?",
+        gread_id <= ? AND
+        department_id = ?",
         current_user.department_id,
         params[:wday],
         params[:period],
         params[:gread_id],
         params[:term_id],
-        params[:gread_id]
+        params[:gread_id],
+        params[:department_id]
       )
     @user_status = LessonUser.new
   end
