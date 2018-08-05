@@ -1,24 +1,86 @@
-%header
-  %nav.navbar.navbar-expand-md.navbar-dark.fixed-top.mt-3
-    %a{:href => "/top"}
-      %img.logo-marks{:alt => "ふぁしり", :src => "/assets/facili_logo_mark.png"}
-    %button.navbar-toggler{"aria-controls" => "navbarsExampleDefault", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarsExampleDefault", "data-toggle" => "collapse", :type => "button"}
-      %span.navbar-toggler-icon
-    #navbarsExampleDefault.collapse.navbar-collapse
-      %ul.navbar-nav.mr-auto.pull-right
-        %li.nav-item.active
-          - if user_signed_in?
-            %li.nav-link= link_to"プロフィール編集", "/users/#{current_user.id}/edit", class: "btn btn-success"
-            %li.nav-link= link_to"ログアウト",destroy_user_session_path, method: :delete, class: "btn btn-warning"
-            %li.nav-link= link_to'このサイトの使い方','/top/information', class: "btn btn-primary"
-            - if current_user.permission == "administrator"
-              %li.nav-link= link_to"授業登録","/lessons/new", method: :get
+-# %header
+-#   %nav.navbar.navbar-expand-md.navbar-dark.fixed-top.mt-3
+-#     %a{:href => "/top"}
+-#       %img.logo-marks{:alt => "ふぁしり", :src => "/assets/facili_logo_mark.png"}
+-#     %button.navbar-toggler{"aria-controls" => "navbarsExampleDefault", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarsExampleDefault", "data-toggle" => "collapse", :type => "button"}
+-#       %span.navbar-toggler-icon
+-#     #navbarsExampleDefault.collapse.navbar-collapse
+-#       %ul.navbar-nav.mr-auto.pull-right
+-#         %li.nav-item.active
+-#           - if user_signed_in?
+-#             %li.nav-link= link_to"プロフィール編集", "/users/#{current_user.id}/edit", class: "btn btn-success"
+-#             %li.nav-link= link_to"ログアウト",destroy_user_session_path, method: :delete, class: "btn btn-warning"
+-#             %li.nav-link= link_to'このサイトの使い方','/top/information', class: "btn btn-primary"
+-#             - if current_user.permission == "administrator"
+-#               %li.nav-link= link_to"授業登録","/lessons/new", method: :get
 
-          - else
-            %li.nav-link= link_to"新規登録",new_user_registration_path, class: "btn btn-success"
-            %li.nav-link= link_to"ログイン",new_user_session_path, class: "btn btn-info"
-  %hr.top
+-#           - else
+-#             %li.nav-link= link_to"新規登録",new_user_registration_path, class: "btn btn-success"
+-#             %li.nav-link= link_to"ログイン",new_user_session_path, class: "btn btn-info"
+-#   %hr.top
 
+.hidden-xs
+  %header
+    = link_to '/' do
+      %img.logo-marks{:alt => "ふぁしり", :src => "/assets/facili_logo_mark.png", class: 'mt-2'}
+    .head-btns.pull-right.mt-3
+      - if user_signed_in?
+        = link_to"プロフィール編集", "/users/#{current_user.id}/edit", class: "btn btn-success py-4"
+        = link_to"ログアウト",destroy_user_session_path, method: :delete, class: "btn btn-warning py-4"
+        = link_to'このサイトの使い方','/top/information', class: "btn btn-primary mr-2 py-4"
+        - if current_user.permission == "administrator"
+          = link_to"授業登録","/lessons/new", method: :get, class: "btn btn-light"
+      - else
+        = link_to"新規登録",new_user_registration_path, class: "btn btn-success py-4"
+        = link_to"ログイン",new_user_session_path, class: "btn btn-info py-4"
+        = link_to'このサイトの使い方','/top/information', class: "btn btn-primary py-4"
+  %hr.top.mt-3
 
-
+.visible-xs-block
+  %header
+    .main-head
+      .row
+        = link_to '/' do
+          %img.logo-marks{:alt => "ふぁしり", :src => "/assets/facili_logo_mark.png", class: 'mt-2'}
+        -# = search_form_for(@q, :url=>{:controller=>"top", :action=>"search"}) do |f|
+        -#   = f.search_field :name_cont, :placeholder => '授業名'
+        -#   .pull-right
+        -#     = f.submit '検索'
+      -# 検索画面
+    .sub-head.mt-2
+      .bg-light.mg-auto
+        - if user_signed_in?
+          .row
+            %ul.nav.nav-tabs
+              %li.nav-item
+                = link_to'/', class: 'nav-link' do
+                  %i.fas.fa-home.fa-3x.col-3
+              %li.nav-item
+                = link_to"/users/#{current_user.id}/edit", class: 'nav-link' do
+                  %i.fas.fa-address-card.fa-3x.col-3
+              %li.nav-item
+              = link_to destroy_user_session_path, method: :delete, class: 'nav-link' do
+                %i.fas.fa-sign-out-alt.fa-3x.mt-2.col-3
+              %li.nav-item
+                = link_to'/top/information', class: 'nav-link' do
+                  %i.fas.fa-info-circle.fa-3x.col-3
+        - else
+          %ul.nav.nav-tabs.text-center
+            %li.nav-item
+              = link_to new_user_registration_path, class: 'nav-link' do
+                %i.fas.fa-user-plus.fa-3x
+            %li.nav-item
+              = link_to new_user_session_path, class: 'nav-link' do
+                %i.fas.fa-sign-in-alt.fa-3x
+            %li.nav-item
+              = link_to '/top/information', class: 'nav-link' do
+                %i.fas.fa-info-circle.fa-3x
+    -# ログイン時は
+    -#   ログアウト
+    -#   プロフィール編集
+    -#   このサイトの使い方
+    -# ログアウト時は
+    -#   ログイン
+    -#   新規登録
+    -#   このサイトの使い方
 
