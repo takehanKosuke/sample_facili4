@@ -1,8 +1,9 @@
-.ransack-top.w-100
-  %h4.ml-3 授業検索
-  .ransack-form
-    = search_form_for(@q, :url=>{:controller=>"top", :action=>"search"}) do |f|
-      = f.label :name_cont, '授業名'
-      = f.search_field :name_cont
-      .pull-right
-        = f.submit '検索', class: 'btn btn-secondary'
+.row.hidden-xs
+  .ransack-top.w-100
+    %h4.ml-3 授業検索
+    .ransack-form
+      = search_form_for(@q, :url=>{:controller=>"top", :action=>"search"}) do |f|
+        = f.label :name_cont, '授業名'
+        = f.search_field :name_cont
+        .pull-right
+          = f.submit '検索', class: 'btn btn-secondary'

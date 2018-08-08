@@ -21,11 +21,11 @@
       .row
         = link_to '/' do
           %img.logo-marks{:alt => "ふぁしり", :src => "/assets/facili_logo_mark.png", class: 'mt-2'}
-        -# = search_form_for(@q, :url=>{:controller=>"top", :action=>"search"}) do |f|
-        -#   = f.search_field :name_cont, :placeholder => '授業名'
-        -#   .pull-right
-        -#     = f.submit '検索'
-      -# 検索画面
+        .pull-right.my-auto.mr-0
+          = search_form_for(@q, :url=>{:controller=>"top", :action=>"search"}) do |f|
+            = f.search_field :name_cont, {:placeholder => '授業名'}
+            .pull-right
+              = f.submit '検索', class: 'btn btn-secondary ml-2'
     .sub-head.mt-2.pt-3.bg-light.text-center
       - if user_signed_in?
         %div
