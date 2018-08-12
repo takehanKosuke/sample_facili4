@@ -1,3 +1,18 @@
+# == Schema Information
+#
+# Table name: books
+#
+#  id                  :integer          not null, primary key
+#  name_text           :text(65535)
+#  author              :text(65535)
+#  list_price          :integer
+#  ctext_lassification :integer
+#  lesson_id           :integer
+#  user_id             :integer
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
+#
+
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 # This model initially had no columns defined.  If you add columns to the
