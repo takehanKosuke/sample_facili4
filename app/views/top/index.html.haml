@@ -66,8 +66,12 @@
       -if lesson.textbook.present? || lesson.referencebook.present?
         %tr
           %td.text-center= lesson.name
-          %td= lesson.textbook
-          %td= lesson.referencebook
+          %td
+            - lesson.textbook.split(",").each do |t|
+              %li= t
+          %td
+            - lesson.referencebook.split(",").each do |t|
+              %li= t
           %td
           %td
   = link_to "購入する", "https://www.amazon.co.jp/?tag=hydraamazonav-22&hvadid=247720376301&hvpos=1t1&hvnetw=g&hvrand=10879976284510714580&hvpone=&hvptwo=&hvqmt=e&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1009318&hvtargid=kwd-10573980&ref=pd_sl_7ibq2d37on_e", class: "btn btn-success mt-3"

@@ -66,3 +66,8 @@ gem 'data-confirm-modal'
 gem 'annotate'
 gem 'rails_admin'
 gem 'cancan'
+
+gem 'rspec-rails', "~> 3.1.0"
+group :development do
+  gem 'web-console', '~> 2.0'
+end
