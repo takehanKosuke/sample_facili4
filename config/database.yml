@@ -47,8 +47,34 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-production:
-  <<: *default
-  database: sample_facili4_production
-  username: sample_facili4
-  password: <%= ENV['SAMPLE_FACILI4_DATABASE_PASSWORD'] %>
+
+
+
+
+
+# production:
+#   <<: *default
+#   database: sample_facili4_production
+#   username: sample_facili4
+#   password: <%= ENV['SAMPLE_FACILI4_DATABASE_PASSWORD'] %>
+#
+#
+#
+# default: &default
+#   adapter: postgresql
+#   encoding: unicode
+#   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+#
+# development:
+#   <<: *default
+#   database: kabarai_lpkabarai_lp_development
+#
+# test:
+#   <<: *default
+#   database: kabarai_lpkabarai_lp_test
+#
+# production:
+#   <<: *default
+#   database: kabarai_lpkabarai_lp_production
+#   username: deploy
+#   password: <%= ENV['KABARAI_LP_DATABASE_PASSWORD'] %>

@@ -6,7 +6,7 @@
 %div
   = form_for (@lesson) do |f|
     %h3= f.label "学部・学課選択"
-    = f.collection_select :department_id, Department.all, :id, :name
+    = f.collection_select :department_id, Department.all, :id, :name, {}, disabled: true
     %h3= f.label"年度・期間"
     = f.collection_select :year_id, Year.all, :id, :year
     = f.collection_select :term_id, Term.all, :id, :term
